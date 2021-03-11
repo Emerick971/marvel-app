@@ -17,7 +17,7 @@ class Allies extends Component {
   // appel de l'api au chargement du Composant
   // mise à jour du state de allies avec le tableau de l'api 
   componentDidMount = () => {
-    fetch("https://marvel-api-81035-default-rtdb.firebaseio.com/character/allies.json") //database créée sur sur firebase
+    fetch("https://marvel-b5afa-default-rtdb.firebaseio.com/character/allies.json") //database créée sur sur firebase
       .then((resp) => resp.json())
       .then((data) => this.setState({ allies: data }));
   };
@@ -30,24 +30,24 @@ class Allies extends Component {
     // sur le click de l'image, j'envoi les info du héro selectionné sur le composant parent (Game)
 
     return (
-      <Row>
-        <>    
-          
-            {
-              this.state.allies != null &&
-              this.state.allies.map(({image, durability, strength, id, energy}, i) =>
-                <>
-                  <img className="transitionGame" id={id}
-                    onClick={() => this.props.saveChoice1(image, durability, strength)} src={image}
-                    key={i} alt='' />
-                  <p>{strength}</p>
-                  <p>{energy}</p>
-                </>
-              )
-            }
-        
-        </>
-      </Row >
+      
+        <div className="containerFightersHero">
+          {
+            this.state.allies != null &&
+            this.state.allies.map(({ image, durability, strength, id, lifeHero }, i) =>
+              <div>
+                <img className="transitionGame" id={id}
+                  onClick={() => this.props.saveChoice1(image, strength, lifeHero)} src={image}
+                  key={i} alt='' />
+                <Row className='characteristic'>
+                  <h5 className='characteristicBase'>Fighting skills: {strength}</h5>
+                  <h5 className='characteristicBase'>Life: {durability}</h5>
+                </Row>
+              </div>
+            )
+          }
+        </div>
+
     )
   }
 }

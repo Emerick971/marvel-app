@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Slider from 'react-slick';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Col } from 'react-bootstrap';
 import ModalComic from './modalComic';
 
 //import Fetch from './md5Fetch';
@@ -30,13 +30,13 @@ export default class SliderComics extends Component {
         const hash = md5(timestamp + API_PRIVATE_KEY + API_PUBLIC_KEY);
 
         // appel du fetch 
-        fetch(`https://gateway.marvel.com/v1/public/comics?format=comic&hasDigitalIssue=false&ts=${timestamp}&apikey=${API_PUBLIC_KEY}&hash=${hash}`)
+        fetch(`https://gateway.marvel.com/v1/public/comics?format=comic&formatType=comic&hasDigitalIssue=false&offset=10&ts=${timestamp}&apikey=${API_PUBLIC_KEY}&hash=${hash}`)
             .then(resp => resp.json())
             .then(data => this.setState({comics:data.data.results}));
     }
 
-    clickComic(id, thumbnail, title) {
-        this.setState({ openModalComic: true, comicId: id, title: title, comicImg: thumbnail.path + '.' + thumbnail.extension });
+    clickComic(id, thumbnail, title, urls) {
+        this.setState({ openModalComic: true, comicId: id, title: title, comicImg: thumbnail.path + '.' + thumbnail.extension, urls: urls[0].url });
     }
 
 
@@ -48,22 +48,27 @@ export default class SliderComics extends Component {
         const settings = {
             dots: false,
             infinite: false,
-            speed: 350,
+            speed: 400,
             slidesToShow: 4,
-            slidesToScroll: 3,
+            slidesToScroll: 2,
             cssEase: 'ease-in-out',
-            centerPadding: '5px',
             draggable: false,
             className: 'carouselSlider',
+            initialSlide: 0,
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 2,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
                         slidesToShow: 3,
                         slidesToScroll: 2,
-                        infinite: false,
-                        dots: false,
-
+                        draggable: true, 
                     }
                 },
                 {
@@ -71,21 +76,27 @@ export default class SliderComics extends Component {
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,
-                        //centerPadding: '10px',
-                        initialSlide: 0,
-                        centerMode: true
+                        draggable: true, 
                     }
                 },
                 {
-                    breakpoint: 480,
+                    breakpoint: 540,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        draggable: true, 
+                    }
+                },
+                {
+                    breakpoint: 416,
                     settings: {
                         slidesToShow: 2,
                         slidesToScroll: 1,
-                        centerPadding: '10px',
-                        infinite: false,
-                        dots: false
+                        draggable: true,
+                        infinite: true, 
                     }
-                }
+                },
+
             ]
         };
 
@@ -98,7 +109,7 @@ export default class SliderComics extends Component {
         return (
 
             <Container>
-                <Row>
+                
 
                     <h3 className='titleSlider'>{this.props.categorieTitle}</h3>
 
@@ -106,17 +117,17 @@ export default class SliderComics extends Component {
                         {
                             this.state.comics
                                 .filter(image => image.thumbnail.path !== noImage)
-                                .map(({ id, thumbnail, title }, i) => (
-                                    <Col key={i} id={id} 
-                                        onClick={() => this.clickComic(id, thumbnail, title)}>
-                                        <div className='transitionComic'>
+                                .map(({ id, thumbnail, title, urls }, i) => (
+                                    <Col key={i} id={id} urls={`${urls[0].url}`}
+                                        onClick={() => this.clickComic(id, thumbnail, title, urls)}>
+                                        <div className='transition'>
                                             <img src={`${thumbnail.path}.${thumbnail.extension}`}
-                                                alt={title} className='marvelCatComics' />
+                                                alt={title} className='marvelCatImg marveCatComics' />
                                         </div>
                                     </Col>
                                 ))}
                     </Slider>
-                </Row>
+       
 
                 <ModalComic
                     openModalComic={this.state.openModalComic}
@@ -124,6 +135,7 @@ export default class SliderComics extends Component {
                     comicId={this.state.comicId}
                     title={this.state.title}
                     comicImg={this.state.comicImg}
+                    urls ={this.state.urls}
                 />
             </Container>
         );

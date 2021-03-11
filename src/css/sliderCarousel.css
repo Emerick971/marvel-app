@@ -4,37 +4,29 @@
   border-radius: 0.4rem;
 }
 
-.marvelCatComics {
-  width: calc(17.5rem / 1.2);
-  border-radius: 0.4rem;
-  opacity: 0.45;
+.marveCatComics {
+  margin-bottom: 0.5rem;
 }
-
-.marvelImage a:focus {
-  outline: none;
-}
-
 
 /*hover slide Character + comic page Home */
 .transition {
-  width: calc(17.5rem / 1.2);
+  width: 100%;
   border-radius: 0.4rem;
-  opacity: 0.45;
+  opacity: 0.6;
 }
 
-.transitionComic {
-  width: calc(17.5rem / 1.2);
-  border-radius: 0.4rem;
-  opacity: 0.75;
-}
-
-.transition:hover, .transitionComic:hover {
+.marvelCatImg:hover {
   box-shadow: 0px 0px 0px 0.125rem #ffffff;
+  transition: 0.5s linear !important;
+  cursor: pointer;
+}
+
+.transition:hover {
   transform: scale(1.05);
   transition: 0.5s linear !important;
   opacity: 1;
+  cursor: pointer;
 }
-
 
 /*hover page Character and Comics */
 .transitionCharacter {
@@ -42,53 +34,130 @@
   height: 16rem;
   border-radius: 0.4rem;
   margin-bottom: 1.5rem;
+  overflow: hidden;
 }
 
 .transitionCharacter:hover {
   box-shadow: 0px 0px 0px 0.125rem rgba(255, 255, 255, 1);
   transform: scale(1.05);
   transition: 0.5s linear !important;
+  cursor: pointer;
 }
 
+/* Page Game */
+.titleGame {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 
-/*hover page Game */
+.imageGame {
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.gameRules {
+  padding: 1rem 10%;
+  border-radius: 0 0 0.4rem 0.4rem;
+}
+
+.rules {
+  font-size: 0.8em;
+  text-align: center;
+}
+
+.space-para {
+  margin-bottom: 2%;
+  padding: 0 1rem;
+}
+
+.rulestitle {
+  font-size: 1em;
+}
+
+.containerFightersChoosen {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerFightersHero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.containerFightersEnemi {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
 .transitionGame {
-  width: 10rem;
-  height: 10rem;
   border-radius: 0.4rem;
-  margin-bottom: 1.5rem;
-  margin-left: 1rem;
-  margin-left: 1rem;
-  margin-top: -2rem;
+  margin: 0 1rem;
+  width: 85%;
 }
 
 .transitionGame:hover {
   box-shadow: 0px 0px 0px 0.125rem rgba(255, 255, 255, 1);
   transform: scale(1.05);
   transition: 0.5s linear !important;
+  cursor: pointer;
 }
 
 .heroFight {
   width: calc(17.5rem / 1.2);
   border-radius: 0.4rem;
-  margin: 2rem 0;
 }
 
 .heroCard {
   margin: 0.5rem 0 1.5rem 0;
 }
 
+.col {
+  padding: 0 2rem;
+}
+
+.progressBar {
+  width: 77%;
+  align-self: center;
+  bottom: 0.1rem;
+}
+
+.titleProgressBar {
+  align-self: center !important;
+  position: relative;
+  margin-right: 0.8rem;
+}
+
+.characteristic {
+  justify-content: space-between;
+  margin: 0 0.85rem;
+}
+
+.characteristicBase {
+  font-size: 0.8rem;
+  margin-top: 3%;
+  color: rgba(236, 29, 36, 0.65);
+}
+
+.rowProgressBar {
+  justify-content: space-between;
+  padding: 0 1rem;
+  /*visibility: hidden;*/
+}
 
 /* Bande titre slider Character and pages Character */
 .overlay {
-  position: absolute;
-  bottom: -0.55rem;
+  position: relative;
+  bottom: 1.8rem;
   background: rgba(236, 29, 36, 0.65);
   width: inherit;
   border-radius: 0 0 0.4rem 0.4rem;
   opacity: 1;
   color: white;
-  font-size: 1rem;
+  font-size: 0.7rem;
   padding: 0.5rem;
   text-align: center;
 }
@@ -106,37 +175,22 @@
   text-align: center;
 }
 
-
 /* carousel Slider Slick */
 .carouselSlider {
   width: 100%;
-  margin-bottom: 2%;
-}
-
-.slick-slider {
-  margin: 0;
-  padding: 0 0.75rem 0 0;
-}
-.slick-list {
-  padding: 0 0 0 1rem;
-  margin-left: 0;
+  padding-top: 0.5rem;
 }
 
 .slick-track {
-  margin: 0 0.5rem;
-  margin-left: 0;
+  left: -0.05rem;
+}
+
+.slick-list {
+  padding-bottom: 0.1rem;
 }
 
 .slick-disabled {
   visibility: hidden;
-}
-
-.slick-next {
-  right: 0.2rem;
-}
-
-.slick-prev {
-  left: 0.25rem;
 }
 
 .slick-prev,
@@ -144,10 +198,9 @@
   color: transparent;
   position: absolute;
   z-index: 1;
+  padding-bottom: 10px;
   outline: none;
-  height: 75%;
-  width: 2rem;
-  transition: opacity 0.25s ease-in-out, background-color 0.25s ease-in-out;
+  width: 3rem;
 }
 
 .slick-next:before {
@@ -161,36 +214,34 @@
 }
 
 .slick-slide {
-  padding: 1rem 0.25rem !important;
+  margin-top: 1.75rem;
 }
 
-.slick-slide,
-.slick-active {
-  display: block;
-  width: 17.5rem;
-}
-
+/*.slick-next {
+  right: -0.75rem;
+}*/
 
 /* Titre slider and pages */
 .titleSlider {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  justify-content: center;
+  margin-top: 0.5rem;
 }
 
 /* Pages Character and Comics */
 .textCenter {
   justify-content: center;
-  margin-top:0;
-  margin-bottom:3rem;
-  margin-left:0;
-  margin-right:0;
+  margin-top: 0;
+  margin-bottom: 3rem;
+  margin-left: 0;
+  margin-right: 0;
 }
-
 
 /*définition des cards*/
 .cardContainer {
   display: flex;
-  flex-wrap: wrap;
-  justify-content:space-between;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 .heroesCard {
@@ -199,15 +250,31 @@
   border-radius: 0.4rem;
 }
 
+.comicsCard {
+  width: 100%;
+  border-radius: 0.4rem;
+}
 
 /* Personnalisation du composant Modal*/
+.modal {
+  width: 30%;
+  top: 4%;
+  left: 34%;
+}
+
 .modal-header {
   background: rgba(236, 29, 36, 1);
   border: 0;
+  padding: 0.5rem 0.5rem;
 }
 
 .modal-title {
   color: white;
+  font-size: 1rem;
+}
+
+.modal-content {
+  width: 100%;
 }
 
 .modal-body {
@@ -218,8 +285,20 @@
   border: 0;
 }
 
-.modalText{
+.modalText {
   padding: 1rem;
+  font-size: 0.8rem;
+}
+
+a {
+  text-decoration: none;
+  color: #79b8f3;
+}
+
+
+.modalText > a:hover {
+  text-decoration: none;
+  
 }
 
 .imgModal {
@@ -241,36 +320,57 @@
 .btn {
   background-image: url("../images/btn_marvel.svg");
   background-repeat: no-repeat;
-  background-size: contain;
   width: 10rem;
   height: 3rem;
-  display: inline-block;
   font-weight: 400;
-  padding-right: 1.55rem;
+  padding: 0.75rem 1.25rem 0 0;
   font-size: 1rem;
   color: white;
-  margin-left: 1rem;
-}
-
-.btnGame {
-  outline: none;
-  margin-top: 8.5rem;
+  margin: 0 0 0 1.25rem;
 }
 
 .btn:hover {
   background-image: url("../images/btn_marvel_dark.svg");
-  transition: .25s ease-in-out;
+  transition: 0.25s ease-in-out;
   color: rgb(86, 29, 36);
-  outline: none;
+  cursor: pointer;
 }
 
-.modalBody{
+.btn-rule {
+  background-image: url("../images/btn_marvel.svg");
+  background-repeat: no-repeat;
+  width: 10rem;
+  height: 3rem;
+  font-weight: 400;
+  padding: 0.75rem 1.25rem 0 1.85rem;
+  font-size: 1rem;
+  color: white;
+  margin: 0 0 0 1.25rem;
+}
+
+.btn-rule:hover {
+  background-image: url("../images/btn_marvel_dark.svg");
+  transition: 0.25s ease-in-out;
+  color: rgb(86, 29, 36);
+  cursor: pointer;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+}
+
+.btnComic {
+  padding-top: 0.2rem;
+}
+
+.modalBody {
   display: flex;
 }
 
-
 /* CSS SearchBar */
-.searchBar{
+.searchBar {
   margin-top: 30px;
   margin-bottom: 50px;
   display: flex;
@@ -279,107 +379,400 @@
   align-items: center;
 }
 
-#searchInput{
+#searchInput {
   width: 80%;
   height: 50px;
-  background-color: #080C14;
+  background-color: #080c14;
   border: 1px solid #151b2a;
   font-size: 1em;
   padding-left: 30px;
   color: white;
 }
 
-#searchInput::placeholder { 
+#searchInput::placeholder {
   color: white;
 }
 
-#searchInput:focus{
+#searchInput:focus {
   background-color: #151b2a;
   border: 1px solid #151b2a;
   outline: none;
   color: white;
-  padding-left: 30px
+  padding-left: 30px;
 }
 
-#searchButton{
+#searchButton {
   width: 20%;
   height: 50px;
   background-color: #151b2a;
   border: 1px solid #151b2a;
   font-size: 1em;
   color: white;
-  cursor: pointer
-  ;
+  cursor: pointer;
 }
 
-#searchButton:hover{
-  background-color:#080C14;
+#searchButton:hover {
+  background-color: #080c14;
   border: 1px solid white;
+  cursor: pointer;
 }
 
-
-#noResult{
+#noResult {
   color: white;
   font-size: 1em;
   text-align: center;
 }
 
-
-
-/* GAME */
-#choice{
-  border: 1px solid white;
-  width: 200px;
-  height: 200px;
+/* Media Query */
+/* 375 411 540 680 768 1024 */
+@media (max-width: 1024px) {
+.title-page {
+  margin-bottom: 0.5rem;
 }
 
-.choiceAllie{
-  border: 1px solid white;
-  width: 200px;
-  height: 200px;
-}
-
-.choiceenemie{
-  border: 1px solid white;
-  width: 200px;
-  height: 200px;
-}
-
-
-/*Media Query*/
-@media (max-width: 768px) {
- .titleName {
-    font-size: 10px;
+  .titleSlider {
+    font-size: calc(1.3rem / 1.4);
   }
 
+  .marvelCatImg {
+    width: inherit;
+  }
+
+  .marveCatComics {
+    margin-bottom: 0.1rem !important;
+  }
+
+  .overlay {
+    font-size: calc(0.7rem / 1.3);
+    padding: calc(0.5rem / 1.2);
+    bottom: calc(2.15rem / 1.5);
+  }
+
+  /*hover page Character and Comics */
+  .transitionCharacter {
+    width: calc(900px / 5.5);
+    height: calc(900px / 5.5);
+    overflow: hidden;
+  }
+
+  /*définition des cards*/
   .heroesCard {
-    width: 100px;
-    height: 50px;
-    margin: 20px;
+    height: inherit;
+    padding-right: 50%;
+  }
+
+  /*hover slide Character + comic page Home */
+  .transition {
+    width: 100%;
+    border-radius: 0.4rem;
+    opacity: 0.6;
+  }
+
+  /* Bande titre slider Character and pages Character */
+  .overlayCharacter {
+    bottom: 1.8rem;
+    font-size: 0.65rem;
+    padding: 0.55rem;
+  }
+
+  #searchInput {
+    width: 80%;
+    height: 30px !important;
+    background-color: #080c14;
+    border: 1px solid #151b2a;
+    font-size: 1em;
+    padding-left: 30px;
+    color: white;
+  }
+
+  #searchInput::placeholder {
+    color: white;
+  }
+
+  #searchInput:focus {
+    background-color: #151b2a;
+    border: 1px solid #151b2a;
+    outline: none;
+    color: white;
+    padding-left: 30px;
+  }
+
+  #searchButton {
+    width: 20%;
+    height: 30px !important;
+    background-color: #151b2a;
+    border: 1px solid #151b2a;
+    font-size: 1em;
+    color: white;
+    cursor: pointer;
+  }
+
+  #searchButton:hover {
+    background-color: #080c14;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+
+  /* image carousel game */
+  .titleGame {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .characteristicBase {
+    font-size: 0.65rem;
+  }
+
+  /* Personnalisation du composant Modal*/
+  .modal {
+    width: 50%;
+    top: 4%;
+    left: 30%;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .modal-footer {
+    border: 0;
+    width: 100%;
+  }
+
+  
+.modal-content {
+  width: 85%;
+}
+
+  .modalText {
+    padding: 1rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+    text-decoration-line: none;
+  }
+
+  .space-para {
+    font-size: 0.8rem;
+  }
+
+  .imgModal {
+    width: 100%;
+    margin: 0;
+  }
+
+  .heroesImg {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 
-  .heroesCard:hover {
-    border: solid darkgrey 2px;
-    cursor: pointer;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .marvelCatImg {
-    height: 30%;
+  .button:hover {
+    border: none;
+    outline: none !important;
+    transition: none !important;
   }
 
-  .slick-slide {
-    padding: 5%;
+  .btn {
+    background-image: url("../images/btn_marvel.svg");
+    background-repeat: no-repeat;
+    width: calc(10rem / 1.4);
+    height: calc(3rem / 1.4);
+    padding: 0.3rem 0.9rem 0 0;
+    font-size: 1rem;
+    color: white;
+    margin: 0 0.1rem 0 1rem;
+  }
+
+  .btn:hover {
+    background-image: url("../images/btn_marvel_dark.svg");
+    color: rgb(86, 29, 36);
+    outline: none;
+  }
+
+  .btn-rule {
+    width: calc(10rem / 1.2);
+    height: calc(3rem / 1.2);
+    font-weight: 400;
+    padding: 0.5rem 0 0 1.15rem;
+    font-size: 1rem;
+    color: white;
+    margin: 0 0 0 1.25rem;
+  }
+
+  .btn-rule:hover {
+    background-image: url("../images/btn_marvel_dark.svg");
+    transition: 0.25s ease-in-out;
+    color: rgb(86, 29, 36);
+  }
+
+  .btn-center {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3%;
+  }
+
+  .modalBody {
+    display: flex;
+  }
+
+  /* carousel Slider Slick */
+  .carouselSlider {
+    width: 100%;
+    padding-top: 0.5rem;
+    left: 0.5rem;
+  }
+
+  .slick-list {
+    padding-bottom: 0.1rem;
+  }
+
+  .slick-disabled {
+    visibility: hidden;
+  }
+
+  .slick-prev {
+    left: -1.1rem;
+  }
+  .slick-next {
+    right: -0.1rem;
   }
 
   .slick-prev,
   .slick-next {
-    height: 80%;
-    width: 40px;
+    visibility: hidden;
   }
+
+  .slick-slide {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .heroFight {
+    width: calc(17.5rem / 1.25);
+  }
+
+  .transitionGame {
+    margin-top: 1rem;
+    width: 90%;
+  }
+}
+
+/* Small screen GAME page */
+@media screen and (max-width: 770px) {
+  .margin-card {
+    margin-top: 1rem;
+  }
+
+  .marvelCatImg {
+    width: inherit;
+    border-radius: 0.4rem;
+  }
+
+  .marvelCatImg:hover {
+    border: none;
+  }
+
+  #searchInput::placeholder {
+    font-size:0.75rem;
+  }
+
+  #searchInput {
+    padding-left: 6px;
+
+  }
+  
+  .modal {
+    width: 75%;
+    top: 4%;
+    left: 18%;
+  }
+
+  .containerFightersChoosen {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .heroFight {
+    width: calc(17.5rem / 2.25);
+  }
+
+  .imageGame {
+    width: 100%;
+  }
+
+  .area {
+    font-size: 2em;
+  }
+
+  .btnGame {
+    width: 3.5rem;
+    height: 1.8rem;
+    padding: 0.1rem 0 0 0;
+    font-size: 1rem;
+    color: white;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0;
+    background-color: rgba(236, 29, 36, 1);
+    border: 1px solid white;
+    display: inline-block;
+    font-weight: 700;
+  }
+
+  .btn:hover {
+    background-image: none;
+    transition: none;
+    color: black;
+    outline: none;
+  }
+
+  .gameRules {
+    padding: 0.8rem 5%;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .containerFightersHero {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  .containerFightersEnemi {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .transitionGame {
+    margin-top: 1rem;
+    width: 80%;
+  }
+
+  .progressBar {
+    width: 68%;
+    align-self: center;
+    bottom: 0.1rem;
+  }
+
+  .titleProgressBar {
+    font-size: 95%;
+    padding-top: 5%;
+  }
+
+  .characteristic {
+    font-size: 85%;
+    padding: 0 0.25rem;
+  }
+
+  /* Titre slider and pages */
   .titleSlider {
-    font-size: calc(28px / 1.3);
+    font-size: 1rem;
+    justify-content: center;
+    margin-bottom: 0.25rem !important;
   }
 }
